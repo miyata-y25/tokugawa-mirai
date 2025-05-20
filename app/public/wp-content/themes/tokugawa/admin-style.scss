@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.inside.acf-fields {
+  display: flex;
+  flex-wrap: wrap;
+}
+.inside.acf-fields > * {
+  width: 100%;
+}
+.inside.acf-fields .acf-field > .acf-label label {
+  font-size: 120%;
+  color: #007CBA;
+  font-weight: bold;
+}
+.inside.acf-fields .acf-table .acf-field > .acf-label label {
+  font-size: inherit;
+  color: inherit;
+  font-weight: inherit;
+}
+.inside.acf-fields .acf-field.col2 {
+  width: 50%;
+}

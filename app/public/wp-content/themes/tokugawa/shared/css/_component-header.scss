@@ -1,0 +1,170 @@
+@charset "utf-8";
+
+@use 'variable' as var;
+@use 'basic/mixin';
+
+/*==================================================================================================
+	ヘッダー
+==================================================================================================*/
+
+header {
+	position: relative;
+	.sp-menu {
+		display: none;
+		position: fixed;
+		right: 1.4vw;
+		top: .88em;
+		padding: 1em 2em;
+		border: 1px solid var.$white;
+		background: rgba(20, 26, 22, .5);
+		color: var.$white;
+		line-height: 1;
+		border-radius: 999px;
+		z-index: 9998;
+		.bars {
+			display: block;
+			background: var.$white;
+			height: 1px;
+			width: 12.5px;
+			position: relative;
+			&::before,
+			&::after {
+				content: "";
+				display: block;
+				height: 100%;
+				width: 100%;
+				position: absolute;
+				background: var.$white;
+				transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+			}
+			&::before {
+				top: 6px;
+			}
+			&::after {
+				bottom: 6px;
+			}
+		}
+		&.active {
+			.bars {
+				background: rgba(20, 26, 22, 0);
+				&::before {
+					top: 0;
+					transform: rotate(-45deg);
+				}
+				&::after {
+					bottom: 0;
+					transform: rotate(45deg);
+				}
+			}
+		}
+		@include mixin.max-screen(var.$screen-md) {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: .6em;
+		}
+	}
+	nav {
+		background: rgba(20, 26, 22, .65);
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: .6em 1.4vw;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		z-index: 998;
+		.h-logo {
+			max-width: 298px;
+			@include mixin.max-screen(var.$screen-md) {
+				max-width: 240px;
+			}
+		}
+		.menu {
+			transition: all var.$default-transition-duration ease;
+			@include mixin.max-screen(var.$screen-md) {
+				position: fixed;
+				top: 0;
+				right: -100vw;
+				width: 70vw;
+				height: 100vh;
+				background: rgba(20, 26, 22, .97);
+				padding: 4em;
+				z-index: 9997;
+			}
+			&.open {
+				right: 0;
+			}
+		}
+		ul {
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			gap: 1em 2em;
+			@include mixin.max-screen(var.$screen-md) {
+				height: 100vh;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+			}
+			a {
+				color: var.$white;
+				font-size: 1.4rem;
+				@include mixin.max-screen(var.$screen-md) {
+					writing-mode: horizontal-tb !important;
+					display: flex;
+					justify-content: flex-start;
+					align-items: center;
+					&::before {
+						content: '';
+						display: block;
+						width: 5px;
+						height: 10px;
+						background: url('../img/common/chevron-w-r.svg') no-repeat center / contain;
+						margin-right: 1em;
+					}
+				}
+			}
+		}
+	}
+	.ttl {
+		background: url('../img/common/ttl-bg.jpg') no-repeat center / cover;
+		width: 100%;
+		padding: 10vw 20px 5vw;
+		text-align: center;
+		@include mixin.max-screen(var.$screen-md) {
+			padding: 36vw 20px 20vw;
+		}
+		time {
+			font-family: var.$en-font;
+			color: rgba(255, 255, 255, .7);
+		}
+		span {
+			display: block;
+			&.jp {
+				font-family: var.$default-font;
+				color: var.$white;
+				font-size: clamp(2.6rem, 1.7vw, 5.6rem);
+				font-weight: 600;
+			}
+			&.en {
+				font-family: var.$en-font;
+				color: rgba(255, 255, 255, .7);
+			}
+		}
+		.tag {
+			display: flex;
+			justify-content: center;
+			font-size: clamp(1rem, 1.7vw, 1.4rem);
+			gap: 1em;
+			margin-top: 3vw;
+			a {
+				color: var.$white;
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}

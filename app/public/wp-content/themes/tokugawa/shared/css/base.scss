@@ -1,0 +1,305 @@
+@charset "utf-8";
+
+@use 'variable' as var;
+@use 'basic/mixin';
+@use 'basic/reset';
+@use 'basic/form';
+
+@use 'component-header';
+@use 'component-footer';
+@use 'component-parts';
+
+/*==================================================================================================
+	サイト基礎
+==================================================================================================*/
+
+body {
+  color: var.$text;
+  background-color: var.$base;
+  font-family: var.$default-font;
+  font-size: var.$default-font-size;
+  font-weight: var.$default-font-weight;
+  font-feature-settings: "palt" 1, "trad" 1;
+  line-height: 2;
+  letter-spacing: 0.066em;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+
+  ::selection {
+    background: var.$mid;
+    color: var.$base;
+  }
+
+  &.noScrolled {
+    overflow: hidden;
+  }
+
+  .iconFont,
+  .fa,
+  .fa-solid,
+  .fa-regular,
+  .fa-light,
+  .fa-thin,
+  .material-symbols-outlined,
+  .material-symbols-rounded,
+  .material-symbols-sharp,
+  *::before,
+  *::after {
+    font-family: var.$icon-font;
+    font-variation-settings: var.$icon-font-settings;
+    font-weight: var.$icon-font-settings;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: var.$default-font-weight;
+    line-height: 1.5;
+  }
+
+  a {
+    display: inline-block;
+    transition: all var.$default-transition-duration ease;
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+      text-decoration: none;
+      transition: all var.$default-transition-duration ease;
+      opacity: 0.7;
+    }
+  }
+
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+.wrap {
+  overflow-x: hidden;
+}
+
+/*---------------------------------------------------------------------
+共通 Common
+---------------------------------------------------------------------*/
+
+//電話番号のリンク（PC時はリンク無効）
+.telLink {
+  cursor: default;
+  pointer-events: none;
+  text-decoration: none;
+  _:-ms-fullscreen,
+  :root .selector {
+    display: inline-block;
+  }
+  @include mixin.max-screen(var.$screen-md) {
+    pointer-events: auto;
+    letter-spacing: 0.02em;
+  }
+}
+
+//pc・spでの表示切替
+.spShow {
+  display: none;
+  @include mixin.max-screen(var.$screen-md) {
+    display: block;
+  }
+}
+
+.pcShow {
+  @include mixin.max-screen(var.$screen-md) {
+    display: none;
+  }
+}
+
+//テキストの微調整
+.indentText {
+  text-indent: -1em;
+  padding-left: 1em;
+}
+.small {
+  font-size: 70%;
+}
+.bold {
+  font-weight: bold;
+}
+.center {
+  text-align: center;
+}
+.right {
+  text-align: right;
+}
+.left {
+  text-align: left;
+}
+.en {
+  font-family: var.$en-font;
+}
+.spLeft {
+  @include mixin.max-screen(var.$screen-sm) {
+    text-align: left;
+  }
+}
+
+//コンテナ
+.lContainer {
+  position: relative;
+}
+
+.mContainer {
+  padding: 5em 0;
+
+  @include mixin.max-screen(var.$screen-xs) {
+    padding: 4em 0;
+  }
+}
+
+.sContainer {
+  padding: 3em 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+//インナー
+.inner {
+  width: 100%;
+  max-width: var.$width-site;
+  margin: 0 auto;
+  @include mixin.inner();
+}
+.innerL {
+  max-width: 95%;
+  margin: 0 auto;
+}
+.innerS {
+  width: 100%;
+  max-width: 80%;
+  margin: 0 auto;
+  @include mixin.inner();
+  @include mixin.max-screen(var.$screen-md) {
+    max-width: 90%;
+  }
+}
+
+//flexbox
+.flexWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  @include mixin.max-screen(var.$screen-md) {
+    gap: 1em;
+  }
+
+  &.-col2 {
+    & > * {
+      width: calc(50% - 0.5em);
+      @include mixin.max-screen(var.$screen-md) {
+        width: 100%;
+      }
+    }
+  }
+
+  &.-col3 {
+    & > * {
+      width: calc((100% / 3) - (2em / 3));
+      @include mixin.max-screen(var.$screen-md) {
+        width: calc(50% - 0.5em);
+      }
+    }
+  }
+
+  &.-col4 {
+    & > * {
+      width: calc((100% / 4) - (3em / 4));
+      @include mixin.max-screen(var.$screen-md) {
+        width: calc((100% / 3) - (2em / 3));
+      }
+    }
+  }
+
+  &.-col5 {
+    & > * {
+      width: calc((100% / 5) - (4em / 5));
+      @include mixin.max-screen(var.$screen-md) {
+        width: calc((100% / 3) - (2em / 3));
+      }
+    }
+  }
+
+  &.-col6 {
+    & > * {
+      width: calc((100% / 6) - (5em / 6));
+      @include mixin.max-screen(var.$screen-md) {
+        width: calc((100% / 3) - (2em / 3));
+      }
+    }
+  }
+
+  &.-col7 {
+    & > * {
+      width: calc((100% / 7) - (6em / 7));
+      @include mixin.max-screen(var.$screen-md) {
+        width: calc((100% / 3) - (2em / 3));
+      }
+    }
+  }
+
+  &.-col8 {
+    & > * {
+      width: calc((100% / 8) - (7em / 8));
+      @include mixin.max-screen(var.$screen-md) {
+        width: calc((100% / 3) - (2em / 3));
+      }
+    }
+  }
+}
+
+//スマホのとき横スクロールにする
+.scrollBox {
+  @include mixin.max-screen(var.$screen-md) {
+    overflow-x: scroll;
+    white-space: nowrap;
+    width: 100vw;
+    margin: 0 calc(50% - 50vw);
+    padding: 2em 0;
+    transform: rotateX(180deg);
+    & > * {
+      transform: rotateX(180deg);
+      padding: 1em 5vw;
+      max-width: 100%;
+      vertical-align: top;
+      & > * {
+        width: 200vw;
+        max-width: initial;
+      }
+    }
+    ::-webkit-scrollbar {
+      height: 4px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #eee;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #aaa;
+      border: none;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #999;
+    }
+  }
+}

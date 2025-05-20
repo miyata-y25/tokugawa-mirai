@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+//------------------------------------------------------------
+//    【必須】サイト設定 - 変数
+//------------------------------------------------------------
+
+//■フォント
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Noto+Sans+JP&family=Shippori+Mincho+B1:wght@400;500;600;700;800&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/yakuhanjp@4.1.1/dist/css/yakuhanmp.css');
+
+
+$default-font-size: clamp(1.4rem, 1.7vw, 1.6rem);
+$default-font-weight: 400;
+
+$default-font: YakuHanMP, "Shippori Mincho B1", "Crimson Text", serif;
+$en-font: "Crimson Text", serif;
+
+//■アイコンフォント
+//FontAwesome
+@import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
+$icon-font: 'Font Awesome 5 Free', 'Font Awesome 5';
+$icon-font-settings: 900;
+
+//GoogleMaterialIcon
+//@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+//*$icon-font: 'Material Symbols Sharp', 'Material Symbols Outlined', 'Material Symbols Rounded';
+//$icon-font-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+
+//■アニメーション
+$default-transition: true;
+$default-transition-duration: 0.5s;
+
+//■マウスオーバー時のリンク画像の透過
+$default-img-hover: false;
+$default-img-hover-opacity: 0.8;
+
+//------------------------------------------------------------
+//    【カスタム】変数
+//------------------------------------------------------------
+
+//■サイト幅
+$width-site: 1100px;
+
+//■ブレイクポイント
+$screen-xxl: 1480px;
+$screen-xl: 1280px;
+$screen-lm: 1160px;
+$screen-lg: 1080px;
+$screen-tb: 860px;
+$screen-md: 767px;
+$screen-sm: 560px;
+$screen-xs: 480px;
+
+//■カラー
+$base: #fff;
+$text: #141A16;
+$error: #cb0000;
+
+$white: #fff;
+$dark: #141A16;
+$mid: #055555;
+$light: #456750;
+
+$orange: #A27600;

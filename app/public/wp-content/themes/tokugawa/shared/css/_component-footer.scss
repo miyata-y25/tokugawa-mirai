@@ -1,0 +1,116 @@
+@charset "utf-8";
+
+@use 'variable' as var;
+@use 'basic/mixin';
+
+/*==================================================================================================
+	フッター
+==================================================================================================*/
+
+footer {
+	background-image: url('../img/common/foot-bgl.svg'), url('../img/common/foot-bgr.svg');
+	background-position: left center, right center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-color: var.$dark;
+	color: var.$white;
+	margin-top: 3em;
+	@include mixin.max-screen(var.$screen-md) {
+		padding: 0 2em 6em;
+	}
+	.cnt {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 3em;
+		padding: 3em 1.4vw;
+		@include mixin.max-screen(var.$screen-md) {
+			flex-direction: column;
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	.info {
+		font-size: clamp(1.4rem, 1.7vw, 1.6rem);
+		@include mixin.max-screen(var.$screen-md) {
+			width: 100%;
+			text-align: center;
+		}
+		.f-logo {
+			max-width: 297px;
+			margin-bottom: 1em;
+			@include mixin.max-screen(var.$screen-md) {
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+	}
+	nav {
+		@include mixin.max-screen(var.$screen-md) {
+			width: 100%;
+		}
+		.btn {
+			display: flex;
+			justify-content: flex-end;
+			gap: 1em;
+			font-size: 1.6rem;
+			@include mixin.max-screen(var.$screen-md) {
+				flex-direction: column;
+				justify-content: center;
+			}
+			a {
+				width: 50%;
+				@include mixin.max-screen(var.$screen-md) {
+					width: 100%;
+				}
+			}
+		}
+		ul {
+			display: flex;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			gap: 1em 2.4em;
+			margin-top: 2em;
+			max-width: 700px;
+			font-size: clamp(1.4rem, 1.7vw, 1.8rem);
+			@include mixin.max-screen(var.$screen-md) {
+				display: none;
+			}
+		}
+		li {
+			//flex: 1;
+			white-space: nowrap;
+			a {
+				width: auto;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				&::before {
+					content: '';
+					display: block;
+					width: 5px;
+					height: 10px;
+					background: url('../img/common/chevron-w-r.svg') no-repeat center / contain;
+					margin-right: .5em;
+				}
+			}
+		}
+	}
+	.bnr {
+		max-width: 880px;
+		margin: 2em auto 0;
+		ul {
+			display: flex;
+			justify-content: center;
+			gap: 1em;
+		}
+	}
+	.copy {
+		max-width: calc(100% - 2.8vw);
+		border-top: 1px solid #9ca1a3;
+		margin: 2em auto 0;
+		padding: 2em 1em;
+		font-size: clamp(1.1rem, 1.7vw, 1.4rem);
+		text-align: center;
+	}
+}

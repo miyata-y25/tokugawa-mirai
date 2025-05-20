@@ -1,0 +1,416 @@
+input,
+textarea {
+  box-sizing: border-box;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  display: block;
+  font-size: clamp(16px, 1em, 1em);
+
+  &:focus {
+    background: #fafafa;
+    outline: none;
+  }
+
+  &[disabled] {
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+  }
+
+  &::placeholder {
+    color: #888;
+  }
+}
+
+input {
+  &[type='text'],
+  &[type='password'],
+  &[type='date'],
+  &[type='datetime'],
+  &[type='email'],
+  &[type='number'],
+  &[type='search'],
+  &[type='tel'],
+  &[type='time'],
+  &[type='url'] {
+    font-family: inherit;
+    color: #000;
+    display: block;
+    padding: 0 1em;
+    border-radius: 0;
+    margin: 0;
+    height: 60px;
+    width: 100%;
+    -webkit-appearance: none;
+  }
+
+  &[type='text']:focus,
+  &[type='password']:focus,
+  &[type='date']:focus,
+  &[type='datetime']:focus,
+  &[type='email']:focus,
+  &[type='number']:focus,
+  &[type='search']:focus,
+  &[type='tel']:focus,
+  &[type='time']:focus,
+  &[type='url']:focus,
+  &[type='checkbox']:focus {
+    outline-color: #438832;
+  }
+
+  &[type='text'][disabled],
+  &[type='password'][disabled],
+  &[type='date'][disabled],
+  &[type='datetime'][disabled],
+  &[type='email'][disabled],
+  &[type='number'][disabled],
+  &[type='search'][disabled],
+  &[type='tel'][disabled],
+  &[type='time'][disabled],
+  &[type='url'][disabled],
+  &[type='checkbox'][disabled] {
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+  }
+
+  &[type='checkbox'],
+  &[type='radio'] {
+    display: inline;
+  }
+
+  &[type='button'],
+  &[type='submit'] {
+    -webkit-appearance: none;
+    width: 400px;
+    max-width: 100%;
+    padding: 1.5em;
+    margin: 1em auto auto auto;
+    line-height: 1;
+    border-radius: 0;
+    border: none;
+    background: #000;
+    color: #fff;
+    font-size: 1.2em;
+    font-weight: bold;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+textarea {
+  height: auto;
+  padding: 20px;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+  font-family: inherit;
+  display: block;
+  width: 100%;
+  min-height: 8em;
+  border-radius: 0;
+  margin-top: 0.5em;
+  &.low {
+    height: 5em;
+    min-height: 5em;
+  }
+}
+select {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 60px;
+  margin: 0;
+  padding: 0 20px;
+  cursor: pointer;
+  border: 1px solid #e6e6e6;
+  background-color: #fff;
+  font-family: inherit;
+  border: 0px;
+  border-radius: 0px;
+}
+
+.any,
+.required {
+  display: inline-block;
+  margin: 0 0.75em 0.5em 0.25em;
+  padding: 0.25em 0.5em;
+  line-height: 1;
+  font-size: 0.8em;
+  font-weight: normal;
+  position: relative;
+  color: #fff;
+}
+
+.any {
+  background-color: #aaa;
+}
+
+.required {
+  background-color: #cb0000;
+}
+
+//===========================================================
+// Radio Button CUSTOM
+//===========================================================
+
+.mwform-radio-field {
+  display: block;
+  margin-left: 0 !important;
+
+  label {
+    margin: 0.5em 0;
+    margin-right: 2rem;
+    display: inline-block;
+
+    @media screen and (max-width: 768px) {
+      margin-right: 1rem;
+    }
+
+    input[type='radio'] {
+      position: absolute;
+      opacity: 0;
+
+      + .mwform-radio-field-text {
+        position: relative;
+        padding-left: 2rem;
+        white-space: nowrap;
+
+        @media screen and (max-width: 768px) {
+          padding-left: 2.5rem;
+        }
+
+        &:before {
+          content: '';
+          background: #eeeeee;
+          border-radius: 100%;
+          border: 1px solid #eeeeee;
+          width: 1.4rem;
+          height: 1.4rem;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+        }
+      }
+
+      &:checked {
+        + .mwform-radio-field-text {
+          &:before {
+            background-color: #5b6d60;
+            box-shadow: inset 0 0 0 3px #fff;
+          }
+        }
+      }
+
+      &:focus {
+        + .mwform-radio-field-text {
+          &:before {
+            border: 1px solid #ccc;
+          }
+        }
+      }
+
+      &:disabled {
+        + .mwform-radio-field-text {
+          &:before {
+            box-shadow: inset 0 0 0 4px #fff;
+            border: #ccc;
+            background: #ccc;
+          }
+        }
+      }
+
+      + .radio-label {
+        &:empty {
+          &:before {
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.error {
+  color: #cc3300;
+  width: 100%;
+  font-size: 1.4rem;
+  margin-top: 1rem;
+  display: block;
+  line-height: initial;
+}
+
+.formControl {
+  width: 100%;
+  padding: 1rem;
+}
+
+.formControlL {
+  width: 100%;
+  padding: 1rem;
+}
+
+//===========================================================
+// Contact form 7 CUSTOM
+//===========================================================
+.wpcf7-list-item {
+  margin: 0 1em 0 0 !important;
+}
+
+.wpcf7-spinner {
+  display: block;
+  margin: auto;
+}
+
+form {
+  input {
+    &.width30 {
+      width: 30%;
+      display: inline-block;
+      margin-bottom: 1em;
+    }
+
+    &.width40 {
+      width: 40%;
+      display: inline-block;
+      margin-bottom: 1em;
+    }
+
+    &.width50 {
+      width: 50%;
+      display: inline-block;
+      margin-bottom: 1em;
+    }
+
+    &.width60 {
+      width: 60%;
+      display: inline-block;
+      margin-bottom: 1em;
+    }
+
+    &.width70 {
+      width: 70%;
+      display: inline-block;
+      margin-bottom: 1em;
+    }
+
+    &.width80 {
+      width: 80%;
+      display: inline-block;
+      margin-bottom: 1em;
+    }
+
+    &.width90 {
+      width: 90%;
+      display: inline-block;
+      margin-bottom: 1em;
+    }
+  }
+
+  table {
+    tr {
+      th,
+      td {
+        background: none;
+        @media screen and (max-width: 768px) {
+          display: block;
+          width: 100%;
+          padding: 2em 0;
+        }
+      }
+      th {
+        @media screen and (max-width: 768px) {
+          padding-bottom: 0;
+        }
+      }
+      td {
+        @media screen and (max-width: 768px) {
+          padding-top: 0.5em;
+        }
+      }
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .small {
+    margin-top: 1em;
+    display: inline-block;
+    line-height: 1.5;
+  }
+
+  a {
+    text-decoration: underline !important;
+  }
+}
+
+//===========================================================
+// message
+//===========================================================
+.screen-reader-response {
+  display: none;
+}
+
+.wpcf7-response-output {
+  text-align: center;
+  max-width: 800px;
+  margin: auto !important;
+}
+
+.wpcf7-not-valid-tip {
+  color: #cb0000;
+  border: 1px solid;
+  display: inline-block;
+  padding: 0.5em;
+  line-height: 1;
+  margin-top: 0.5em;
+}
+
+//===========================================================
+// Confirm Plus Contact Form 7 CUSTOM
+//===========================================================
+.wpcf7cp-btns {
+  text-align: center;
+}
+
+#wpcf7cpcnf {
+  table {
+    p {
+      margin: 0;
+    }
+
+    tr {
+      td {
+        padding: 1em !important;
+      }
+    }
+  }
+}
+
+.wpcf7cp-cfm-edit-btn {
+  -webkit-appearance: none;
+  width: 400px;
+  max-width: 100%;
+  padding: 1.5em;
+  margin: auto;
+  line-height: 1;
+  border-radius: 0;
+  border: none;
+  font-size: 1.2em;
+  background: #eee;
+  color: #888;
+}
+
+.wpcf7cp-cfm-submit-btn {
+  -webkit-appearance: none;
+  width: 400px;
+  max-width: 100%;
+  padding: 1.5em;
+  margin: auto;
+  line-height: 1;
+  border-radius: 0;
+  border: none;
+  font-size: 1.2em;
+  background: #000;
+  color: #fff;
+}

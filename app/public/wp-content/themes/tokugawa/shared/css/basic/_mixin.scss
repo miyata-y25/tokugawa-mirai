@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+@use '../variable' as var;
+
+//===========================================================
+//    グラデーション
+//===========================================================
+
+@mixin gradation {
+  background: var.$main;
+  background: linear-gradient(90deg, rgba(var.$main-d, 1) 40%, rgba(var.$main, 1) 100%);
+}
+
+//===========================================================
+//    文字サイズ
+//===========================================================
+
+@mixin font-size($fontsize) {
+  font-size: ($fontsize / 10) + rem;
+}
+
+//===========================================================
+//    余白付きwidth
+//===========================================================
+
+@mixin margin-width($width, $margin) {
+  max-width: $width;
+  margin-right: auto;
+  margin-left: auto;
+
+  @include max-screen($width + ($margin * 2)) {
+    margin-right: $margin;
+    margin-left: $margin;
+  }
+}
+
+//===========================================================
+//    メディアクエリ
+//===========================================================
+@mixin max-screen($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+
+@mixin min-screen($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin screen($min-width, $max-width) {
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
+}
+
+//===========================================================
+//    余白付きボックス
+//===========================================================
+
+@mixin inner {
+  @media screen and (max-width: 1200px) {
+    padding-left: 3vw;
+    padding-right: 3vw;
+  }
+  @media screen and (max-width: 767px) {
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
