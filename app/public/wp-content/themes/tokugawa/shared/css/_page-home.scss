@@ -237,4 +237,59 @@ header {
 			margin: 3em auto 0;
 		}
 	}
+	.news {
+		margin-top: 4em;
+		padding: 1em 3vw 6em;
+		background: #f8f8f8;
+		.archive {
+			margin: 4em auto 0;
+			max-width: 940px;
+			border-bottom: 1px solid #e3e3e3;
+			dl {
+				border-top: #e3e3e3 1px solid;
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: flex-start;
+				align-items: flex-start;
+				gap: 0.5em 1em;
+				line-height: 1.6;
+				padding: 2em 0;
+				position: relative;
+				&:first-child {
+				}
+				&::after {
+					content: '';
+					width: 14px;
+					height: 8px;
+					background: url('../img/common/arrow-b-r.svg') no-repeat center / contain;
+					position: absolute;
+					right: 1.6em;
+					top: 50%;
+					transform: translateY(-50%);
+				}
+				dt {
+					&.date {
+					}
+					&.cate {
+						font-size: 1.2rem;
+						color: #FFF;
+						background: #141A16;
+						border-radius: 50px;
+						width: 100%;
+						max-width: 10em;
+						text-align: center;
+						line-height: (24/12);
+						padding: 0em 0.5em;
+					}
+				}
+				dd {
+					width: 70%;
+				}
+			}
+		}
+		.btn {
+			max-width: 350px;
+			margin: 3em auto 0;
+		}
+	}
 }

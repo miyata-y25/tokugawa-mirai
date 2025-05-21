@@ -64,6 +64,7 @@
         <div class="menu">
           <ul>
             <li><a href="<?php echo esc_url(home_url()); ?>">ホーム</a></li>
+            <li><a href="<?php echo esc_url(home_url()); ?>/news">お知らせ</a></li>
             <li><a href="<?php echo esc_url(home_url()); ?>/about">徳川みらい学会とは</a></li>
             <li><a href="<?php echo esc_url(home_url()); ?>/report">事業活動報告</a></li>
             <!-- li class="spShow"><a href="<?php echo esc_url(home_url()); ?>/tour">徳川みらい学会歴史探訪</a></li -->
@@ -103,6 +104,9 @@
         <?php } elseif (is_post_type_archive('report') || is_singular('report')) { ?>
         <span class="jp">事業活動報告</span>
         <span class="en">Report</span>
+        <?php } elseif (is_post_type_archive('news') || is_singular('news')) { ?>
+        <span class="jp">お知らせ</span>
+        <span class="en">News & Topics</span>
         <?php } elseif (is_post_type_archive('tour') || is_tax('tour_tag')) { ?>
         <span class="jp">徳川みらい学会歴史探訪</span>
         <span class="en">Tokugawa Mirai Society History Tour</span>
