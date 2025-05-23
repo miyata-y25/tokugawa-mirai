@@ -238,7 +238,6 @@ header {
 		}
 	}
 	.news {
-		margin-top: 4em;
 		padding: 1em 3vw 6em;
 		background: #f8f8f8;
 		.archive {
@@ -283,7 +282,11 @@ header {
 					}
 				}
 				dd {
-					width: 70%;
+					padding: 0 3em 0 0;
+					width: 100%;
+					@include mixin.min-screen(var.$screen-md + 1) {
+						flex: 1;
+					}
 				}
 			}
 		}

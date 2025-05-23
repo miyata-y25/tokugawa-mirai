@@ -6,7 +6,7 @@
 		wp_reset_query();
 		$args = array(
 			'post_type' => 'news',
-			'showposts' => 10,
+			'showposts' => 5,
 			'order' => 'DESC',
 			'orderby' => 'date',
 			'paged' => $paged,
